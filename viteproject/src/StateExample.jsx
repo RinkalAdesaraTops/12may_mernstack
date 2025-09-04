@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
 const StateExample = () => {
     const [name,setName] = useState("Test123")
     const [age,setAge] = useState(31)
-    var [salary,setSalary] = useState(25000)
     const setNewName = ()=>{
         setName("ABCD")
     }
+    const H3 = styled.h3 `
+          color:red;
+          background-color:yellow;
+    `
   return (
     <div>
-      <h3>Name is -- {name}</h3>
+      <H3>Name is -- {name}</H3>
       <h3>Age is -- {age}</h3>
       <button onClick={setNewName}>CHange Name</button>
       <button onClick={()=>setAge(24)}>Change Age</button>
