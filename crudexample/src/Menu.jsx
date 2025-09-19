@@ -12,6 +12,8 @@ const Menu = () => {
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link> ||
             <Nav.Link href="/about">About</Nav.Link> ||
+            <Nav.Link href="/about/a1">About 1</Nav.Link> ||
+            <Nav.Link href="/about/a2">About 2</Nav.Link> ||
             <Nav.Link href="/contact">Contact</Nav.Link> ||
             
           </Nav>
@@ -29,5 +31,4 @@ const Menu = () => {
     </div>
   )
 }
-
 export default Menu

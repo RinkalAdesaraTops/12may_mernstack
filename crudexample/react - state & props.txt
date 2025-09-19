@@ -1,0 +1,18 @@
+react - state & props
+dom - V.dom
+class & func component 
+lifecycle
+css ,module , bootstrap,material ui
+styled component
+hooks useState & useEFfect
+normal crud
+shortcut crud
+api crud
+axios-json-server
+routing & nested routing
+
+
+usecallback,memo ref,context custom 
+redux redux toolkit
+firebase 
+lazy loading

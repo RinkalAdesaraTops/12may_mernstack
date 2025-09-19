@@ -27,7 +27,10 @@ function App() {
       <Routes>
           <Route path='/home' element={<Home />}/>
           <Route path='/contact' element={<Contact />}/>
-          <Route path='/about' element={<About />}/>
+          <Route path='/about' element={<About />}>
+            <Route path='a1' element={<ApiCrud />}/>
+            <Route path='a2' element={<ApiExample />}/>
+          </Route>
       </Routes>
       {/* </BrowserRouter> */}
     </>
