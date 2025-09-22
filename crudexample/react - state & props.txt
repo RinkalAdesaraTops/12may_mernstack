@@ -10,9 +10,9 @@ shortcut crud
 api crud
 axios-json-server
 routing & nested routing
+useref
 
-
-usecallback,memo ref,context custom 
+usecallback,memo,context, custom 
 redux redux toolkit
 firebase 
 lazy loading

@@ -14,8 +14,8 @@ const Menu = () => {
             <Nav.Link href="/about">About</Nav.Link> ||
             <Nav.Link href="/about/a1">About 1</Nav.Link> ||
             <Nav.Link href="/about/a2">About 2</Nav.Link> ||
-            <Nav.Link href="/contact">Contact</Nav.Link> ||
-            
+            <Nav.Link href="/contact">Contact</Nav.Link> ||           
+            <Nav.Link href="/useref">Use Ref Example</Nav.Link> ||           
           </Nav>
         </Navbar.Collapse>
       </Container>
