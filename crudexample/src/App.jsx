@@ -15,6 +15,7 @@
 // import UseRefexample from './UseRefexample'
 import ContextExample from './ContextExample'
 import Crud1 from './Crud1'
+import Customhook from './Customhook'
 import UseContextExample from './UseContextExample'
 import UsememoExample from './UsememoExample'
 
@@ -22,7 +23,8 @@ import UsememoExample from './UsememoExample'
 function App() {
   return (
     <>
-    <UseContextExample />
+    <Customhook />
+    {/* <UseContextExample /> */}
     {/* <ContextExample /> */}
     {/* <UsememoExample /> */}
       {/* <User /> */}
