@@ -12,9 +12,10 @@ axios-json-server
 routing & nested routing
 useref
 usecallback,memo,context
------------------------------
 custom hooks
-redux 
-redux toolkit
-firebase 
+-----------------------------
+
+redux  - crud
+redux toolkit  crud
+firebase  crud
 lazy loading
