@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { delFunc, insFunc } from './reduxcrud/UserAction';
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { delFunc, insFunc, updFunc } from "./reduxcrud/UserAction";
 
 const UserCOmponent = () => {
-   const [data, setData] = useState({
+  const [data, setData] = useState({
     name: "",
     age: "",
   });
-  const alldata = useSelector((state)=>state.data)
-  const dispatch = useDispatch()
+  const alldata = useSelector((state) => state.data);
+  const [id, setId] = useState("");
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,14 +19,27 @@ const UserCOmponent = () => {
       [name]: value,
     });
   };
-  const saveData = (e)=>{
-    e.preventDefault()
-    dispatch(insFunc(data))
+  const saveData = (e) => {
+    e.preventDefault();
+    if (id != "") {
+      //update
+      dispatch(updFunc(id,data))
+    } else {
+      //insert
+      dispatch(insFunc(data));
+    }
     setData({
-      name:"",
-      age:""
-    })
-  }
+      name: "",
+      age: "",
+    });
+    setId("");
+  };
+
+  const editData = (id) => {
+    setId(id);
+    let res = alldata.find((i, index) => index == id);
+    setData(res);
+  };
   return (
     <div>
       <form action="#" method="post" onSubmit={saveData}>
@@ -36,7 +50,9 @@ const UserCOmponent = () => {
           id=""
           onChange={handleChange}
           value={data.name}
-        /> <br /><br />
+        />{" "}
+        <br />
+        <br />
         <label htmlFor="">Age:</label>
         <input
           type="number"
@@ -44,10 +60,12 @@ const UserCOmponent = () => {
           id=""
           onChange={handleChange}
           value={data.age}
-        /><br /><br />
-
+        />
+        <br />
+        <br />
         <input type="submit" value="Save" />
-        <br /><br />
+        <br />
+        <br />
       </form>
       <table>
         <thead>
@@ -65,14 +83,19 @@ const UserCOmponent = () => {
                 <td>{index + 1}</td>
                 <td>{i.name}</td>
                 <td>{i.age}</td>
-                <td><button onClick={()=>dispatch(delFunc(index))}>Delete</button></td>
+                <td>
+                  <button onClick={() => editData(index)}>Edit</button>
+                  <button onClick={() => dispatch(delFunc(index))}> 
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default UserCOmponent
+export default UserCOmponent;
