@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react'
-
 const UsememoExample = () => {
     const [count,setCount] = useState(0)
     const [num,setNum] = useState(0)
@@ -29,7 +28,6 @@ const UsememoExample = () => {
         <h3>Number is -- {num}</h3>
         <button onClick={addNum}>Add </button>
         <h3>Calc is = {calc}</h3>
-
     </div>
   )
 }

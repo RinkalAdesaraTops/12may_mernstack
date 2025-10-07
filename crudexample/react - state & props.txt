@@ -6,16 +6,16 @@ css ,module , bootstrap,material ui
 styled component
 hooks useState & useEFfect
 normal crud
-shortcut crud
-api crud
-axios-json-server
+
 routing & nested routing
 useref
 usecallback,memo,context
 custom hooks
 -----------------------------
-
 redux  - crud
 redux toolkit  crud
 firebase  crud
 lazy loading
+shortcut crud
+api crud
+axios-json-server
