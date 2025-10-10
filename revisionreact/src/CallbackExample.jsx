@@ -21,7 +21,6 @@ const CallbackExample = () => {
         <input type="submit" value="Save" />
       </form>
       <Display alldata={alldata}/>
-
     </div>
   )
 }

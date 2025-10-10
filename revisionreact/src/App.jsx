@@ -3,6 +3,9 @@ import "./App.css";
 import CounterComponent from "./CounterComponent";
 import Rtkcomponent from "./Rtkcomponent";
 import CallbackExample from "./CallbackExample";
+import CrudComponent from "./CrudComponent";
+import Apicomponent from "./Apicomponent";
+import ApiCurd from "./ApiCurd";
 // import Contact from './Contact'
 // import Firstcomponent from './Firstcomponent'
 // import Home from './Home'
@@ -11,7 +14,10 @@ const Contact = lazy(()=>import("./Contact"));
 function App() {
   return (
     <>
-    <CallbackExample />
+    <ApiCurd/>
+    {/* <Apicomponent /> */}
+    {/* <CrudComponent /> */}
+    {/* <CallbackExample /> */}
     {/* <CounterComponent /> */}
     {/* <Rtkcomponent /> */}
       {/* <h3>Lazy Loading Example</h3>
