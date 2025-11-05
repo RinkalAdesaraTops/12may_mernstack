@@ -1,0 +1,9 @@
+REPL
+read
+evaluate
+print
+loop
+// 3 types of modules in node.js
+// core modules - fs, http, path, os
+// local modules - created by you in your project
+// third party modules - installed via npm (node package manager)
