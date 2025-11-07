@@ -5,8 +5,13 @@ const ins = async(req,res)=>{
     const conn = await main()
     let db = conn.db
     const collection = db.collection('category');
-
-    let result = await collection.insertOne(req.body)
+    let id = new ObjectId(req.body.catid)
+    let result = ''
+    if(id!=''){
+        result = await collection.updateOne({_id:id},{$set:{"catname":req.body.catname}})
+    } else {
+        result = await collection.insertOne(req.body)
+    }
     if(result){
         res.redirect('/category')
     }
