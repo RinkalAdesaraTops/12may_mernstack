@@ -5,7 +5,10 @@ const ins = async(req,res)=>{
     const conn = await main()
     let db = conn.db
     const collection = db.collection('category');
-    let id = new ObjectId(req.body.catid)
+    let id=''
+    if(req.body.catid != ''){
+        id = new ObjectId(req.body.catid)
+    }
     let result = ''
     if(id!=''){
         result = await collection.updateOne({_id:id},{$set:{"catname":req.body.catname}})
@@ -30,13 +33,14 @@ const del = async(req,res)=>{
 }
 
 const edit = async(req,res)=>{
-    let catid = req.params.id
-    let id = new ObjectId(catid)
+    let subcatid = req.params.id
+    let id = new ObjectId(subcatid)
     const conn = await main()
     let db = conn.db
     const collection = db.collection('category');
     let editdata = await collection.findOne({_id:id})
     let data = await collection.find().toArray()
+    editdata.catid = new ObjectId(editdata.catid)
     res.render('category',{
         "catdata":data,
         "editData":editdata

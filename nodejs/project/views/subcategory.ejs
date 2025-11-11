@@ -38,18 +38,32 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Add Category</h5>
+                                    <h5>Add Subsubcategory</h5>
                                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                 </div>
                                 <div class="card-block">
                                     <form class="form-material" method="post" name="frm"
-                                        action="/category/insdata">
-                                        <input type="hidden" name="catid" value="<%= (editData) ? editData._id:'' %>">
+                                        action="/subcategory/insdata">
+                                        <input type="hidden" name="subcatid"
+                                            value="<%= (editData) ? editData._id:'' %>">
                                         <div class="form-group form-default form-static-label">
-                                            <input type="text" name="catname" class="form-control"
-                                                placeholder="Enter Category" value="<%= (editData) ? editData.catname:'' %>">
+                                            <select name="catid" id="catid" class="form-control">
+                                                <option value="">--Select Category--</option>
+                                                <% catdata.map((i)=>{ %>
+                                                    <option value="<%= i._id%>" <%= (editData!= '' && i._id.equals(editData.catid))?'selected':''%>>
+                                                        <%= i.catname%>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
                                             <span class="form-bar"></span>
                                             <label class="float-label">Category</label>
+                                        </div>
+                                        <div class="form-group form-default form-static-label">
+                                            <input type="text" name="subcatname" class="form-control"
+                                                placeholder="Enter subcategory"
+                                                value="<%= (editData) ? editData.subcatname:'' %>">
+                                            <span class="form-bar"></span>
+                                            <label class="float-label">Subcategory</label>
                                         </div>
                                         <button class="btn waves-effect waves-light btn-primary">
                                             Save</button>
@@ -60,7 +74,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Category List</h5>
+                                    <h5>Subcategory List</h5>
 
                                     <div class="card-header-right">
                                         <ul class="list-unstyled card-option">
@@ -72,38 +86,42 @@
                                         </ul>
                                     </div>
                                 </div>
-    <div class="card-block table-border-style">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Category</th>
-                        <th>Action</th>
+                                <div class="card-block table-border-style">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Category</th>
+                                                    <th>Subcategory</th>
+                                                    <th>Action</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <% catdata.map((i,index)=>{ %>
-                        <tr>
-                            <td>
-                                <%= index+1 %>
-                            </td>
-                            <td>
-                                <%= i.catname %>
-                            </td>
-                            <td>
-                                <a href="/category/edit/<%= i._id%>"
-                                    class="btn btn-primary text-light">Edit</a>
-                                <a href="/category/del/<%= i._id%>"
-                                    class="btn btn-danger text-light">Delete</a>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% subcatdata.map((i,index)=>{ %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= index+1 %>
+                                                        </td>
+                                                        <td>
+                                                            <%= i.catid %>
+                                                        </td>
+                                                        <td>
+                                                            <%= i.subcatname %>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/subcategory/edit/<%= i._id%>"
+                                                                class="btn btn-primary text-light">Edit</a>
+                                                            <a href="/subcategory/del/<%= i._id%>"
+                                                                class="btn btn-danger text-light">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
