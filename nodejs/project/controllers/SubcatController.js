@@ -42,15 +42,15 @@ const edit = async(req,res)=>{
     let editdata = await collection.findOne({_id:id})
     let data = await collection.find().toArray()
     let catdata = await collection1.find().toArray()
-    let res_final = data.map((i)=>{
-        let catname = catdata.find((j)=>{
-            return j._id.toString() == i.catid.toString()
-        })
-        i.catname = catname ? catname.catname : ''
-        return i
+    let resdata = data.map((i)=>{
+                let catinfo = catdata.find((j)=>{
+                        return j._id.toString() == i.catid.toString()
+                })
+                i.catname = catinfo.catname
+                return i
     })
     res.render('subcategory',{
-        "subcatdata":res_final,
+        "subcatdata":resdata,
         "editData":editdata,
         "catdata":catdata
     })
@@ -62,15 +62,15 @@ const disp = async(req,res)=>{
     const collection1 = db.collection('category');
     let data = await collection.find().toArray()
     let catdata = await collection1.find().toArray()
-    let res_final = data.map((i)=>{
-        let catname = catdata.find((j)=>{
-            return j._id.toString() == i.catid.toString()
-        })
-        i.catname = catname ? catname.catname : ''
-        return i
+    let resdata = data.map((i)=>{
+                let catinfo = catdata.find((j)=>{
+                        return j._id.toString() == i.catid.toString()
+                })
+                i.catname = catinfo.catname
+                return i
     })
     res.render('subcategory',{
-        "subcatdata":res_final,
+        "subcatdata":resdata,
         "catdata":catdata,
         "editData":""
     })
