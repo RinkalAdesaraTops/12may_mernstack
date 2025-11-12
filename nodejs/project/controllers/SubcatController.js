@@ -42,9 +42,15 @@ const edit = async(req,res)=>{
     let editdata = await collection.findOne({_id:id})
     let data = await collection.find().toArray()
     let catdata = await collection1.find().toArray()
-
+    let res_final = data.map((i)=>{
+        let catname = catdata.find((j)=>{
+            return j._id.toString() == i.catid.toString()
+        })
+        i.catname = catname ? catname.catname : ''
+        return i
+    })
     res.render('subcategory',{
-        "subcatdata":data,
+        "subcatdata":res_final,
         "editData":editdata,
         "catdata":catdata
     })
@@ -56,8 +62,15 @@ const disp = async(req,res)=>{
     const collection1 = db.collection('category');
     let data = await collection.find().toArray()
     let catdata = await collection1.find().toArray()
+    let res_final = data.map((i)=>{
+        let catname = catdata.find((j)=>{
+            return j._id.toString() == i.catid.toString()
+        })
+        i.catname = catname ? catname.catname : ''
+        return i
+    })
     res.render('subcategory',{
-        "subcatdata":data,
+        "subcatdata":res_final,
         "catdata":catdata,
         "editData":""
     })
